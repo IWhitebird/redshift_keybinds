@@ -2,7 +2,7 @@
 
 ## Setup Instructions
 
-1. Install xbindkey
+1. Install xbindkeys
    
 2. Create a file in `~/.config/.xbindkeysrc` and add the code from `xbindkeysrc`
    
