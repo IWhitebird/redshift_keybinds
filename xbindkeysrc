@@ -1,15 +1,15 @@
 #Decrese Brightness
-"sed -i "s/brightness=\(0\.\([1-9]\|[1-9][0-9]\)\|1\.0\)/brightness=$(awk -v b=$(awk -F= '/brightness/ {print $2}' redshift.conf) 'BEGIN{new_b = b - 0.1; if (new_b < 0.1) new_b = 0.1; if (new_b > 1.0) new_b = 1.0; printf "%.1f", new_b}')/" redshift.conf && redshift -oP -O $(awk -F= '/temperature/ {print $2}' redshift.conf) -b $(awk -v b=$(awk -F= '/brightness/ {print $2}' redshift.conf) 'BEGIN{new_b = b - 0.1; if (new_b < 0.1) new_b = 0.1; if (new_b > 1.0) new_b = 1.0; printf "%.1f", new_b}')"
-F9
+"sed -i "s/brightness=\(0\.\([1-9]\|[1-9][0-9]\)\|1\.0\)/brightness=$(awk -v b=$(awk -F= '/brightness/ {print $2}' redshift.conf) 'BEGIN{new_b = b - 0.05; if (new_b < 0.1) new_b = 0.1; if (new_b > 1.0) new_b = 1.0; printf "%.05f", new_b}')/" redshift.conf && redshift -oP -O $(awk -F= '/temperature/ {print $2}' redshift.conf) -b $(awk -v b=$(awk -F= '/brightness/ {print $2}' redshift.conf) 'BEGIN{new_b = b - 0.05; if (new_b < 0.1) new_b = 0.1; if (new_b > 1.0) new_b = 1.0; printf "%.05f", new_b}')"
+Control+Mod2 + F9
 
 #Increase Brightness
-"sed -i "s/brightness=\(0\.\([1-9]\|[1-9][0-9]\)\|1\.0\)/brightness=$(awk -v b=$(awk -F= '/brightness/ {print $2}' redshift.conf) 'BEGIN{new_b = b + 0.1; if (new_b < 0.1) new_b = 0.1; if (new_b > 1.0) new_b = 1.0; printf "%.1f", new_b}')/" redshift.conf && redshift -oP -O $(awk -F= '/temperature/ {print $2}' redshift.conf) -b $(awk -v b=$(awk -F= '/brightness/ {print $2}' redshift.conf) 'BEGIN{new_b = b + 0.1; if (new_b < 0.1) new_b = 0.1; if (new_b > 1.0) new_b = 1.0; printf "%.1f", new_b}')"
-F10
+"sed -i "s/brightness=\(0\.\([1-9]\|[1-9][0-9]\)\|1\.0\)/brightness=$(awk -v b=$(awk -F= '/brightness/ {print $2}' redshift.conf) 'BEGIN{new_b = b + 0.05; if (new_b < 0.1) new_b = 0.1; if (new_b > 1.0) new_b = 1.0; printf "%.05f", new_b}')/" redshift.conf && redshift -oP -O $(awk -F= '/temperature/ {print $2}' redshift.conf) -b $(awk -v b=$(awk -F= '/brightness/ {print $2}' redshift.conf) 'BEGIN{new_b = b + 0.05; if (new_b < 0.1) new_b = 0.1; if (new_b > 1.0) new_b = 1.0; printf "%.05f", new_b}')"
+Control+Mod2 + F10
 
 #Decrease Temperature
 "sed -i "s/temperature=\([0-9]\+\)/temperature=$(awk -v temp=$(awk -F= '/temperature/ {temp = $2 - 200; if (temp < 2000) temp = 2000; if (temp > 7000) temp = 7000; printf "%d", temp}' redshift.conf) 'BEGIN{printf "%d", temp}')/" redshift.conf && redshift -oP -O $(awk -F= '/temperature/ {temp = $2 - 200; if (temp < 2000) temp = 2000; if (temp > 7000) temp = 7000; printf "%d", temp}' redshift.conf) -b $(awk -F= '/brightness/ {print $2}' redshift.conf)"
-F11
+Control+Mod2 + F11
 
 #Increase Temperature
 "sed -i "s/temperature=\([0-9]\+\)/temperature=$(awk -v temp=$(awk -F= '/temperature/ {temp = $2 + 200; if (temp < 2000) temp = 2000; if (temp > 7000) temp = 7000; printf "%d", temp}' redshift.conf) 'BEGIN{printf "%d", temp}')/" redshift.conf && redshift -oP -O $(awk -F= '/temperature/ {temp = $2 + 200; if (temp < 2000) temp = 2000; if (temp > 7000) temp = 7000; printf "%d", temp}' redshift.conf) -b $(awk -F= '/brightness/ {print $2}' redshift.conf)"
-F12
+Control+Mod2 + F12
